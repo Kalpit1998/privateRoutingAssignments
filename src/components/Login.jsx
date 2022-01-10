@@ -18,8 +18,15 @@ export function Login() {
     })
       .then((res) => res.json())
       .then((res) => {
-        console.log(res);
-        handleToken(res.token);
+        // console.log(res);
+        if(res.error){
+          alert(res.error);
+          return;
+        }
+        else{
+          handleToken(res.token);
+        }
+        
       });
   };
 
